@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nightwave</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bg"></canvas>
+
+<div id="toolbar">
+  <button id="source" class="tb pill full-only" title="Choose source"><span class="dot"></span><span id="sourceName">—</span><span id="sourceCount"></span></button>
+  <div class="spacer"><span class="handle" title="Drag to move"></span></div>
+  <button id="btnMode" class="tb full-only" title="Visualiser style">
+    <svg viewBox="0 0 24 24"><path d="M5 20V10M10 20V4M15 20v-8M20 20V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+  </button>
+  <button id="btnTheme" class="tb full-only" title="Theme">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>
+  </button>
+  <button id="btnPin" class="tb" title="Keep on top">
+    <svg viewBox="0 0 24 24"><path d="M9 3h6l-1 6 4 4v2h-5v6l-1 1-1-1v-6H6v-2l4-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="none"/></svg>
+  </button>
+  <button id="btnCompact" class="tb" title="Compact mode">
+    <svg id="icoShrink" viewBox="0 0 24 24"><path d="M4 14h6v6M20 10h-6V4M10 14l-6 6M14 10l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    <svg id="icoGrow" viewBox="0 0 24 24"><path d="M14 4h6v6M10 20H4v-6M20 4l-6 6M4 20l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+  </button>
+  <button id="btnHide" class="tb" title="Hide to tray (Esc)">
+    <svg viewBox="0 0 24 24"><path d="M6 12.5h12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+  </button>
+  <button id="btnClose" class="tb" title="Quit">
+    <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+</div>
+
+<div id="sources"></div>
+
+<div id="panel">
+  <div class="row">
+    <div id="artBox"><img id="art" alt=""><svg id="artPh" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="17.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></div>
+    <div class="meta">
+      <div id="title"><span class="track"></span></div>
+      <div id="sub"></div>
+    </div>
+    <div class="ctrls">
+      <button id="btnPrev" class="cb" title="Previous">
+        <svg viewBox="0 0 24 24"><path d="M6 5v14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M19 5.5v13L9 12z" fill="currentColor"/></svg>
+      </button>
+      <button id="btnPlay" class="cb" title="Play / pause">
+        <svg id="icoPlay" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+        <svg id="icoPause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="13.5" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg>
+      </button>
+      <button id="btnNext" class="cb" title="Next">
+        <svg viewBox="0 0 24 24"><path d="M18 5v14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M5 5.5v13L15 12z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="prog" id="prog">
+    <span id="tNow">0:00</span>
+    <div id="bar"><div class="track"><div id="fill"></div><div id="knob"></div></div></div>
+    <span id="tDur">0:00</span>
+  </div>
+</div>
+
+<div id="grip" title="Resize"><svg viewBox="0 0 12 12"><path d="M11 3L3 11M11 7l-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+<div id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
